@@ -121,14 +121,17 @@ export default function Quiz() {
     const attempts = JSON.parse(localStorage.getItem("quizAttempts") || "[]");
     attempts.push({ score, date: new Date().toLocaleString() });
     localStorage.setItem("quizAttempts", JSON.stringify(attempts));
+    document.getElementById('my_modal_5').showModal()
    // Navigate to history page after quiz completion
   };
 
   // Display result section after quiz completion
   const resultSection = (
-    <div className="mt-4 bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+  <div className="modal-box">
+  <div className="mt-4 border-b-2  p-6 text-center">
       <h2 className="text-3xl font-bold text-green-500">Quiz Completed!</h2>
-      <p className="text-xl mt-2">Your score: {score} out of {quizData.length}</p>
+      <p className="text-xl mt-2 text-neutral-800">Your score: {score} out of {quizData.length}</p>
       <div className="mt-4">
         <button
           className="px-6 py-2 bg-blue-500 hover:bg-blue-600 text-lg font-bold rounded-lg"
@@ -138,6 +141,14 @@ export default function Quiz() {
         </button>
       </div>
     </div>
+    <div className="modal-action">
+      <form method="dialog">
+        {/* if there is a button in form, it will close the modal */}
+        <button className="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
   );
 
   // Start quiz
@@ -248,6 +259,10 @@ export default function Quiz() {
         <div>
           <img className="w-[500px]" src={img1} alt="" />
         </div>
+
+        
+
+
       </div>
     </>
   );
