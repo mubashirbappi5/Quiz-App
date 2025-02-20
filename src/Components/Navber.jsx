@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png'
 const Navber = () => {
     const links = <>
@@ -52,7 +52,7 @@ const Navber = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Quiz Start</a>
+          <Link to={'/quiz'} className="btn bg-amber-300 font-bold">Quiz Start</Link>
         </div>
       </div>
     </div>
