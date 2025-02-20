@@ -37,7 +37,7 @@ export default function History() {
           <button
             onClick={() => {
               clearQuizResults();
-              setQuizHistory([]); // Clear history state
+              setQuizHistory([]); 
             }}
             className="mt-4 px-6 py-2 bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg"
           >

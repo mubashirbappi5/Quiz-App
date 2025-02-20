@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import img1 from "../assets/thoughtful-woman-with-laptop-looking-big-question-mark.png";
 import { useNavigate } from "react-router-dom";
+import { saveQuizResult } from "../utils/indexedDB";
 
 
 const quizData = [
@@ -109,6 +110,8 @@ export default function Quiz() {
       setIsAnswered(false);
     } else {
       setQuizCompleted(true);
+      saveQuizResult(score, quizData.length);
+    
     }
   };
 
