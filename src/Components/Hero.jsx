@@ -5,7 +5,7 @@ const Hero = () => {
     const navigate = useNavigate();
     return (
         <div>
-             <div className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 to-purple-700 text-white text-center px-6">
+             <div className="relative flex flex-col items-center justify-center min-h-screen   text-center px-6">
     
       <motion.img
         src={img1}
@@ -27,7 +27,7 @@ const Hero = () => {
       </motion.h1>
 
      
-      <p className="text-lg text-gray-200 mt-3">
+      <p className="text-lg text-gray-500 mt-3">
         Take fun quizzes, test your knowledge, and challenge yourself!
       </p>
 

@@ -9,9 +9,7 @@ const Navber = () => {
             <li>
               <NavLink to={'/quiz'}>Quiz</NavLink>
             </li>
-            <li>
-              <NavLink to={'/leader'}>Leaderboard</NavLink>
-            </li>
+            
             <li>
               <NavLink to={'/history'}>History</NavLink>
             </li>
