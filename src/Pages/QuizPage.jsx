@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 import img1 from '../assets/thoughtful-woman-with-laptop-looking-big-question-mark.png'
 
 const quizData = [
@@ -69,7 +69,7 @@ export default function Quiz() {
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [userAnswer, setUserAnswer] = useState(""); 
   const [quizStarted, setQuizStarted] = useState(false); // New state for tracking quiz start
-  const navigate = useNavigate();
+ 
 
   // Timer function (30 sec per question)
   useEffect(() => {
@@ -121,7 +121,7 @@ export default function Quiz() {
     const attempts = JSON.parse(localStorage.getItem("quizAttempts") || "[]");
     attempts.push({ score, date: new Date().toLocaleString() });
     localStorage.setItem("quizAttempts", JSON.stringify(attempts));
-    navigate("/history"); // Navigate to history page after quiz completion
+   // Navigate to history page after quiz completion
   };
 
   // Display result section after quiz completion
@@ -170,7 +170,9 @@ export default function Quiz() {
           <div>
             <div className="border-2 border-orange-200 p-6 mt-5 rounded-lg shadow-lg text-center">
               {/* Timer */}
-              <div className="text-lg font-bold text-right text-yellow-400  ">{timeLeft}s</div>
+              <div className="text-lg font-bold text-right flex justify-end   ">
+                <h1 className="border-2 text-yellow-400 rounded-full w-10 text-center h-10 ">{timeLeft}s</h1>
+              </div>
 
               {/* Question */}
               <h2 className="text-2xl font-bold text-black  mt-4">{quizData[currentQuestion].question}</h2>
@@ -179,7 +181,7 @@ export default function Quiz() {
               {quizData[currentQuestion].type === "multiple-choice" ? (
                 <div className="mt-4 grid grid-cols-2 gap-4">
                   {quizData[currentQuestion].options.map((option, index) => {
-                    let buttonClass = "px-4 py-2 rounded-lg text-lg font-semibold transition-all bg-gray-700 hover:bg-gray-600";
+                    let buttonClass = "px-4 py-2 rounded-lg text-lg font-semibold transition-all bg-orange-100 text-black hover:bg-orange-300";
                     if (isAnswered) {
                       if (option === selectedAnswer) {
                         buttonClass = option === quizData[currentQuestion].correct ? "bg-green-500" : "bg-red-500";
@@ -205,7 +207,7 @@ export default function Quiz() {
                     type="number"
                     value={userAnswer}
                     onChange={handleInputChange}
-                    className="w-full p-2 rounded-lg bg-gray-700 text-white mb-4"
+                    className="w-full p-2 rounded-lg  text-orange-300 mb-4"
                     placeholder="Your Answer"
                   />
                   <button
@@ -221,8 +223,8 @@ export default function Quiz() {
               {isAnswered && (
                 <div className="mt-4 text-lg font-semibold">
                   {selectedAnswer === quizData[currentQuestion].correct ? 
-                    <p className="text-green-500">✔ Correct Answer!</p> : 
-                    <p className="text-red-500">❌ Incorrect Answer. Correct answer: {quizData[currentQuestion].correct}</p>
+                    <p className="text-green-500">✔</p> : 
+                    <p className="text-red-500">❌ </p>
                   }
                 </div>
               )}
