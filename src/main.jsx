@@ -10,7 +10,7 @@ import Root from './Layout/Root';
 import Home from './Pages/Home';
 import QuizPage from './Pages/QuizPage';
 import History from './Pages/History';
-import Leaderboard from './Pages/Leaderboard';
+
 
 
 const router = createBrowserRouter([
@@ -29,10 +29,7 @@ const router = createBrowserRouter([
       path:'/history',
       element:<History/>
     },
-    {
-      path:'/leader',
-      element:<Leaderboard/>
-    }
+   
   ]
   },
 ]);
